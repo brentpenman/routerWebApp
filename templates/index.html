@@ -1,0 +1,116 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+function route(){
+ var source_data = $$("#source").val();
+ var dest_data = $$("#dest").val();
+jQuery.ajax({
+    type:"POST",
+    url:'/',
+    data:{source:source_data,dest:dest_data},
+    success:function(data){
+        $$("#response").hide().html(data).fadeIn().fadeOut(4800);
+        }
+    });
+
+}
+</script>
+</head>
+<body style="margin-top: 50px; background-color:#f8f8f8">
+<div class="container">
+<center>
+<div class="panel panel-default" style="width:500px">
+<div class="panel-heading" style="background-color:AAAAAA">
+<center>
+<h3>VL Philly Router Control v0.1</h3>
+</div>
+<div class="panel-body"style="background-color:d4d4d4;"><center>
+<p><select id="source" style="font-size:40px; margin-top:30px;">
+
+<option value="">Source</option>
+<option value="0">SD Black</option>
+<option value="1">SD Bars</option>
+<option value="2">HD Bars</option>
+<option value="3">VL10 - Hib Rx</option>
+<option value="7">Studio 1A</option>
+<option value="8">Studio 1B</option>
+<option value="10">Studio 2A</option>
+<option value="11">Studio 2B</option>
+<option value="12">Studio 3</option>
+<option value="20">VTR 1</option>
+<option value="21">VTR 2</option>
+<option value="22">VTR 3</option>
+<option value="23">VTR 4</option>
+<option value="24">VTR 5</option>
+<option value="29">VTR 11</option>
+<option value="30">VTR 12</option>
+<option value="31">IRD 3</option>
+<option value="32">Enc 1</option>
+<option value="34">IRD 1</option>
+<option value="35">IRD 2</option>
+<option value="36">HD Box 1</option>
+<option value="37">HD Box 2</option>
+<option value="40">VTR 10</option>
+<option value="41">FS1</option>
+<option value="43">Prompt 1</option>
+<option value="45">Test 9</option>
+<option value="46">Tx Multiview</option>
+
+</select>
+</p>
+<p>
+
+<select id="dest" style="font-size:40px; margin-top:30px">
+<option value="">Destination</option>
+<option value="0">VL11</option>
+<option value="4">ENC 3</option>
+<option value="5">ENC 4</option>
+<option value="9">ENC 1</option>
+<option value="10">ENC 2</option>
+<option value="12">IRD 2 ASI</option>
+<option value="14">HD MOD 75.1</option>
+<option value="15">HD MOD 85.1</option>
+<option value="17">Prompt 3</option>
+<option value="18">Prompt 4</option>
+<option value="19">Prompt 5</option>
+<option value="20">VTR 1</option>
+<option value="21">VTR 2</option>
+<option value="22">VTR 3</option>
+<option value="23">VTR 4</option>
+<option value="24">VTR 5</option>
+<option value="30">VTR 10</option>
+<option value="33">Return 1</option>
+<option value="34">Prompt 1</option>
+<option value="35">Return 2</option>
+<option value="36">Prompt 2</option>
+<option value="37">FS 1</option>
+<option value="39">QC 1</option>
+<option value="40">QC 2 A</option>
+<option value="41">QC 3</option>
+<option value="42">QC 4</option>
+<option value="44">VTR 11</option>
+<option value="45">VTR 12</option>
+<option value="46">ROC 1</option>
+<option value="47">ROC 2</option>
+<option value="54">PCR SWR 5</option>
+<option value="61">Test 9</option>
+<option value="62">QC 2 C ASI</option>
+<option value="63">QC 2 B</option>
+</select>
+<p><button class="btn btn-danger btn-lg" onclick="route()" style="font-size:40px; margin-top:30px">TAKE</button></p>
+
+</div>
+</div>
+<div id="response" style="margin-top:50px;"><p></p></div>
+</center>
+
+
+</div>
