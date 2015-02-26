@@ -14,8 +14,11 @@ host = '192.168.2.214'
 port = 5001
 addr = (host,port)
 
-#hexxer converts a decimal integer into a two character hex string
+
 def hexxer(int):
+    """Converts decimal int into two char string
+
+    Returns string"""
     y = hex(int).split('x')[1]
     if len(str(y))==1:
 	#in case it's a single digit string
@@ -24,6 +27,7 @@ def hexxer(int):
         return str(y)
 
 def senddata(src,dst):
+    """sends computed hex strings down router socket"""
     #create the router check_sum data
     sum=src+dst+1
     #convert source, destination, and checksum ints into two character hex strings
